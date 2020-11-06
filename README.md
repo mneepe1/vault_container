@@ -5,5 +5,5 @@ docker run -p 8200:8200  -d -v /Users/mneepe1/test2/vaulttesting/vault/config:/v
 
 Change Port and volume path to run a second container
 
-docker run -p 8200:8200 --name=mainvault -d -v /Users/mneepe1/test2/vaulttesting/vault/config:/vault/config --cap-add=IPC_LOCK -e "VAULT_ADDR=http://127.0.0.1" vault server
+docker run -d --name=secondaryvault -p 8222:8200 -v /Users/mneepe1/test2/vaulttesting/vault/config:/vault/config --cap-add=IPC_LOCK -e "VAULT_ADDR=http://127.0.0.1:8200" vault server
 
